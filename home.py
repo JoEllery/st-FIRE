@@ -37,7 +37,7 @@ if sb and aw and yr and ps:
       # Extract stock and bond returns from the same year
       stock_ret = returns.loc[random_row, 'stocks']
       bond_ret = returns.loc[random_row, 'bonds']
-      ret = (ps * stock_ret) + ((1-ps) * bond_ret)
+      ret = (float(ps) * stock_ret) + ((1-float(ps)) * bond_ret)
 
       # Calculate the new balance given the withdrawl and returns
       balance = (balance - withdraw) * (1 + ret)
