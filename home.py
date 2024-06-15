@@ -52,6 +52,10 @@ if sb and aw and yr and ps:
   quants = np.quantile(vanguard_results, [.10, .25, .5, .75, .9])
   prob = np.sum(vanguard_results>0)/1000
 
-  st.write("The 10th, 25th, 50th, 75th and 90th percentiles of returns are: ")
-  st.write(quants)
+  st.write("The 10th percentile of returns is: " + str(quants[0]))
+  st.write("The 25th percentile of returns is: " + str(quants[1]))
+  st.write("The 50th percentile of returns is: " + str(quants[2]))
+  st.write("The 75th percentile of returns is: " + str(quants[3]))
+  st.write("The 90th percentile of returns is: " + str(quants[4]))
+
   st.write("Your probability of surviving retirement is: " + str(prob))
