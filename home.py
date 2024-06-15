@@ -11,6 +11,8 @@ ps = st.text_input("Percentage stocks: ")
 
 if sb and aw and yr and ps:
 
+  st.write("Working!")
+
   vanguard_results = np.zeros(1000)
 
   # Iterate over simulations
