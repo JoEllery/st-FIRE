@@ -19,11 +19,11 @@ if sb and aw and yr and ps:
   for i in range(1000):
 
     # Reset withdrawl and balance to starting values
-    withdraw = aw
-    balance = sb
+    withdraw = int(aw)
+    balance = int(sb)
 
     # Simulate over 35 years
-    for y in range(yr):
+    for y in range(int(yr)):
 
       # Choose a random year to use for data (done by choosing a random row of the dataframe)
       random_row = np.random.choice(range(len(returns)))
