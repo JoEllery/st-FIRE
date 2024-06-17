@@ -1,12 +1,13 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 returns = pd.read_csv("http://www.dsm.business/data/stock_history.csv")
 
-sb = st.text_input("Starting balance: ", placeholder = 1000000)
-aw = st.text_input("Annual withdrawl: ", placeholder = 70000)
-yr = st.text_input("Years of retirement: ", placeholder = 35)
+sb = st.text_input("Starting balance: ", 1000000)
+aw = st.text_input("Annual withdrawl: ", 70000)
+yr = st.text_input("Years of retirement: ", 35)
 ps = st.text_input("Percentage stocks: ")
 
 if sb and aw and yr and ps:
@@ -52,10 +53,15 @@ if sb and aw and yr and ps:
   quants = np.quantile(vanguard_results, [.10, .25, .5, .75, .9])
   prob = np.sum(vanguard_results>0)/1000
 
-  st.write("The 10th percentile of returns is: " + str(quants[0]))
-  st.write("The 25th percentile of returns is: " + str(quants[1]))
-  st.write("The 50th percentile of returns is: " + str(quants[2]))
-  st.write("The 75th percentile of returns is: " + str(quants[3]))
-  st.write("The 90th percentile of returns is: " + str(quants[4]))
-
   st.write("Your probability of surviving retirement is: " + str(prob))
+
+  fig, ax = plt.subplots(figsize=(5, 5))
+  
+  ax.hist(vanguard_results)  # Plot transformer sentiment
+
+  ax.set_ylabel('Count')  # Label for the y-axis
+  ax.set_title('Simulated Distribution of Account Balances')  # Title of the chart
+  ax.set_xlabels("Final Balance") # Label for the x-axis
+  
+  # Display the plot!
+  st.pyplot(fig)
