@@ -61,7 +61,7 @@ if sb and aw and yr and ps:
 
   ax.set_ylabel('Count')  # Label for the y-axis
   ax.set_title('Simulated Distribution of Account Balances')  # Title of the chart
-  ax.set_xlabels("Final Balance") # Label for the x-axis
+  ax.set_xlabel("Final Balance") # Label for the x-axis
   
   # Display the plot!
   st.pyplot(fig)
